@@ -1,4 +1,5 @@
 import './App.css'
+import './Styles/DashboardHeader.css'
 import React, { useState, useEffect, useContext } from "react";
 import {
     BrowserRouter as Router,
@@ -11,13 +12,9 @@ function App() {
   return (
       <Router>
               <div className="App">
-                  <header className="App-header">
-                      <div className="maincontent" id="mainContent">
-                          <Routes>
-                              <Route element={<Dashboard />} path={"/"}/>
-                          </Routes>
-                      </div>
-                  </header>
+                  <Routes>
+                      <Route element={<Dashboard />} path={"/"}/>
+                  </Routes>
               </div>
       </Router>
   )

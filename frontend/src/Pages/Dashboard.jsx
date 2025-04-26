@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import DashboardHeader from "../Components/DashboardHeader.jsx";
 
 const Dashboard = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -37,6 +38,7 @@ const Dashboard = () => {
 
     return (
         <div>
+            <DashboardHeader />
             {isLoaded &&
                 <div>
                     {users.map(user => (
