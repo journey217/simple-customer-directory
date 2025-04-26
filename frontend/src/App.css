@@ -9,9 +9,35 @@
 
 .add_button {
   background-color: #58a9dc;
+  color: white;
 }
 
 .add_button:hover {
   background-color: #3c7598;
   color: #b6b6b6;
+}
+
+.clear_button {
+  background-color: #686868;
+  color: white;
+}
+
+.clear_button:hover {
+  background-color: #474747;
+  color: #b6b6b6;
+}
+
+.cancel_button {
+  color: #fff;
+  background-color: #ec9393;
+}
+
+.cancel_button:hover {
+  background-color: #9f6262;
+  color: #b6b6b6;
+}
+
+.close_button {
+  color: #000;
+  cursor: pointer;
 }

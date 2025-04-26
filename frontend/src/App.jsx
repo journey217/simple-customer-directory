@@ -1,5 +1,6 @@
 import './App.css'
 import './Styles/DashboardHeader.css'
+import './Styles/AddCustomer.css';
 import React, { useState, useEffect, useContext } from "react";
 import {
     BrowserRouter as Router,

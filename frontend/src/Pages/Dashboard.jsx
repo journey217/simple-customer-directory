@@ -1,9 +1,13 @@
 import {useEffect, useState} from "react";
 import DashboardHeader from "../Components/DashboardHeader.jsx";
+import AddCustomer from "../Components/AddCustomer.jsx";
 
 const Dashboard = () => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [users, setUsers] = useState([]);
+    const openModal = () => setShowModal(true)
+    const closeModal = () => setShowModal(false)
 
     useEffect(() => {
 
@@ -36,9 +40,10 @@ const Dashboard = () => {
         }
     }
 
+
     return (
-        <div>
-            <DashboardHeader />
+        <div className={"dashboard_container"}>
+            <DashboardHeader openModal={openModal} />
             {isLoaded &&
                 <div>
                     {users.map(user => (
@@ -48,6 +53,9 @@ const Dashboard = () => {
                     ))}
                 </div>
             }
+            {showModal && (
+                <AddCustomer closeModal={closeModal} />
+            )}
         </div>
     )
 }
