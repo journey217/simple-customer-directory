@@ -94,7 +94,7 @@ const AddCustomer = ( { closeModal, setIsLoaded } ) => {
                         <input
                             className={hasError.name ? "input_error":""}
                             type={"text"}
-                            placeholder={" John Doe"}
+                            placeholder={"John Doe"}
                             onChange={e => setName(e.target.value)}
                             value={name}
                         />
@@ -104,7 +104,7 @@ const AddCustomer = ( { closeModal, setIsLoaded } ) => {
                         <input
                             className={hasError.email ? "input_error":""}
                             type={"email"}
-                            placeholder={" john.doe@example.com"}
+                            placeholder={"john.doe@example.com"}
                             onChange={e => setEmail(e.target.value)}
                             value={email}
                         />
@@ -125,7 +125,7 @@ const AddCustomer = ( { closeModal, setIsLoaded } ) => {
                         <input
                             className={hasError.company ? "input_error":""}
                             type={"text"}
-                            placeholder={" Reid Petroleum"}
+                            placeholder={"Google"}
                             onChange={e => setCompany(e.target.value)}
                             value={company}
                         />
