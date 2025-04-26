@@ -35,8 +35,9 @@ const AddCustomer = ( { closeModal } ) => {
     }
 
     const handleAdd = async () => {
+        let url = `${import.meta.env.VITE_API_PATH}/customers`;
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_PATH}/customers`, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

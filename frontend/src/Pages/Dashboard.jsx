@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import DashboardHeader from "../Components/DashboardHeader.jsx";
 import AddCustomer from "../Components/AddCustomer.jsx";
+import CustomerDisplay from "../Components/CustomerDisplay.jsx";
 
 const Dashboard = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -46,11 +47,7 @@ const Dashboard = () => {
             <DashboardHeader openModal={openModal} />
             {isLoaded &&
                 <div>
-                    {users.map(user => (
-                        <div key={user.id}>
-                            <span>{user.name}</span>
-                        </div>
-                    ))}
+                    <CustomerDisplay customers={users} />
                 </div>
             }
             {showModal && (

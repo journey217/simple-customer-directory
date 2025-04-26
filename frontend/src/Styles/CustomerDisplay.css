@@ -1,0 +1,69 @@
+.customer_display_container {
+    width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-inline: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.customer_display_container {
+
+    .card {
+        width: calc(90vw / 6);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        img {
+            border-radius: 5px;
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card_attributes {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: left;
+            width: 80%;
+            text-align: left;
+            gap: 5px;
+            font-weight: 300;
+        }
+
+        .button_tray {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                padding: 8px;
+                min-width: 80px;
+                width: 5vw;
+                min-height: 2vw;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: background-color .3s ease-in-out, color .3s ease-in-out;
+            }
+        }
+
+    }
+
+}
