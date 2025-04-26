@@ -46,6 +46,33 @@ const AddCustomer = ( { closeModal } ) => {
             const reply = await response.json()
             if (!reply.success) {
                 console.log(reply)
+                let oldError = {...defaultErrorState}
+                switch (reply.type) {
+                    case "name":
+                        oldError.name = true;
+                        break;
+                    case "email":
+                        oldError.email = true;
+                        break;
+                    case "phone":
+                        oldError.phone = true;
+                        break;
+                    case "company":
+                        oldError.company = true;
+                        break;
+                    case "profilePicture":
+                        oldError.profilePicture = true;
+                        break;
+                    case "startDate":
+                        oldError.startDate = true;
+                        break;
+                    case "endDate":
+                        oldError.endDate = true;
+                }
+                setHasError(oldError)
+                setFormError(reply.message)
+            } else {
+                closeModal()
             }
         } catch (error) {
             console.error('Error:', error);
@@ -64,18 +91,20 @@ const AddCustomer = ( { closeModal } ) => {
                     <div className={"input_group"}>
                         <label>{"Name"}</label>
                         <input
-                            className={hasError.name && "input_error"}
+                            className={hasError.name ? "input_error":""}
                             type={"text"}
+                            placeholder={" John Doe"}
                             onChange={e => setName(e.target.value)}
                             maxLength={30}
                             value={name}
                         />
                     </div>
                     <div className={"input_group"}>
-                        <label>{"Email"}</label>
+                        <label>{"Email Address"}</label>
                         <input
-                            className={hasError.email && "input_error"}
+                            className={hasError.email ? "input_error":""}
                             type={"email"}
+                            placeholder={" john.doe@example.com"}
                             onChange={e => setEmail(e.target.value)}
                             maxLength={30}
                             value={email}
@@ -84,7 +113,8 @@ const AddCustomer = ( { closeModal } ) => {
                     <div className={"input_group"}>
                         <label>{"Phone Number"}</label>
                         <input
-                            className={hasError.phone && "input_error"}
+                            placeholder={" 123-456-7890"}
+                            className={hasError.phone ? "input_error":""}
                             type={"phone"}
                             onChange={e => setPhone(e.target.value)}
                             maxLength={30}
@@ -92,10 +122,11 @@ const AddCustomer = ( { closeModal } ) => {
                         />
                     </div>
                     <div className={"input_group"}>
-                        <label>{"Company"}</label>
+                        <label>{"Company Name"}</label>
                         <input
-                            className={hasError.company && "input_error"}
+                            className={hasError.company ? "input_error":""}
                             type={"text"}
+                            placeholder={" Reid Petroleum"}
                             onChange={e => setCompany(e.target.value)}
                             maxLength={30}
                             value={company}
@@ -104,7 +135,8 @@ const AddCustomer = ( { closeModal } ) => {
                     <div className={"input_group"}>
                         <label>{"Profile Picture URL"}</label>
                         <input
-                            className={hasError.profilePicture && "input_error"}
+                            placeholder={"www.example.com/image"}
+                            className={hasError.profilePicture ? "input_error":""}
                             type={"text"}
                             onChange={e => setProfilePicture(e.target.value)}
                             maxLength={30}
@@ -114,7 +146,7 @@ const AddCustomer = ( { closeModal } ) => {
                     <div className={"input_group"}>
                         <label>{"Contract Start Date"}</label>
                         <input
-                            className={hasError.startDate && "input_error"}
+                            className={hasError.startDate ? "input_error":""}
                             type={"date"}
                             onChange={e => setStartDate(e.target.value)}
                             maxLength={30}
@@ -124,7 +156,7 @@ const AddCustomer = ( { closeModal } ) => {
                     <div className={"input_group"}>
                         <label>{"Contract End Date"}</label>
                         <input
-                            className={hasError.endDate && "input_error"}
+                            className={hasError.endDate ? "input_error":""}
                             type={"date"}
                             onChange={e => setEndDate(e.target.value)}
                             maxLength={30}
