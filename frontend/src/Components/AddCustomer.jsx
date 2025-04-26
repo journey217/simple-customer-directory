@@ -11,7 +11,7 @@ let defaultErrorState = {
     profilePicture: false
 }
 
-const AddCustomer = ( { closeModal } ) => {
+const AddCustomer = ( { closeModal, setIsLoaded } ) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -73,6 +73,7 @@ const AddCustomer = ( { closeModal } ) => {
                 setHasError(oldError)
                 setFormError(reply.message)
             } else {
+                setIsLoaded(false)
                 closeModal()
             }
         } catch (error) {
@@ -96,7 +97,6 @@ const AddCustomer = ( { closeModal } ) => {
                             type={"text"}
                             placeholder={" John Doe"}
                             onChange={e => setName(e.target.value)}
-                            maxLength={30}
                             value={name}
                         />
                     </div>
@@ -107,18 +107,17 @@ const AddCustomer = ( { closeModal } ) => {
                             type={"email"}
                             placeholder={" john.doe@example.com"}
                             onChange={e => setEmail(e.target.value)}
-                            maxLength={30}
                             value={email}
                         />
                     </div>
                     <div className={"input_group"}>
                         <label>{"Phone Number"}</label>
                         <input
-                            placeholder={" 123-456-7890"}
+                            placeholder={"123-456-7890"}
                             className={hasError.phone ? "input_error":""}
                             type={"phone"}
                             onChange={e => setPhone(e.target.value)}
-                            maxLength={30}
+                            maxLength={12}
                             value={phone}
                         />
                     </div>
@@ -129,7 +128,6 @@ const AddCustomer = ( { closeModal } ) => {
                             type={"text"}
                             placeholder={" Reid Petroleum"}
                             onChange={e => setCompany(e.target.value)}
-                            maxLength={30}
                             value={company}
                         />
                     </div>
@@ -140,7 +138,6 @@ const AddCustomer = ( { closeModal } ) => {
                             className={hasError.profilePicture ? "input_error":""}
                             type={"text"}
                             onChange={e => setProfilePicture(e.target.value)}
-                            maxLength={30}
                             value={profilePicture}
                         />
                     </div>
@@ -150,7 +147,6 @@ const AddCustomer = ( { closeModal } ) => {
                             className={hasError.startDate ? "input_error":""}
                             type={"date"}
                             onChange={e => setStartDate(e.target.value)}
-                            maxLength={30}
                             value={startDate}
                         />
                     </div>
@@ -160,7 +156,6 @@ const AddCustomer = ( { closeModal } ) => {
                             className={hasError.endDate ? "input_error":""}
                             type={"date"}
                             onChange={e => setEndDate(e.target.value)}
-                            maxLength={30}
                             value={endDate}
                         />
                     </div>

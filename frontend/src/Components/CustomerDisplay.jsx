@@ -1,8 +1,8 @@
 
-const CustomerDisplay = ( { customers } ) => {
+const CustomerDisplay = ( { customers, setIsLoaded } ) => {
 
     const handleRemove = async (id) => {
-        let url = `${process.env.VITE_API_PATH}/customers/${id}`;
+        let url = `${import.meta.env.VITE_API_PATH}/customers/${id}`;
         try {
             const response = await fetch(url, {
                 method: 'DELETE',
@@ -12,7 +12,9 @@ const CustomerDisplay = ( { customers } ) => {
             });
             const reply = await response.json()
             if (!reply.success) {
+                console.log(reply)
             }
+            setIsLoaded(false)
         } catch (error) {
             console.error('Error:', error);
         }

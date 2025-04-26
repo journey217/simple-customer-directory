@@ -47,11 +47,11 @@ const Dashboard = () => {
             <DashboardHeader openModal={openModal} />
             {isLoaded &&
                 <div>
-                    <CustomerDisplay customers={users} />
+                    <CustomerDisplay customers={users} setIsLoaded={setIsLoaded} />
                 </div>
             }
             {showModal && (
-                <AddCustomer closeModal={closeModal} />
+                <AddCustomer closeModal={closeModal} setIsLoaded={setIsLoaded} />
             )}
         </div>
     )

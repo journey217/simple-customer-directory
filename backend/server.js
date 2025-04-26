@@ -50,10 +50,22 @@ app.get('/customers', (req, res) => {
             res.status(500).json({"success": false, "message": 'Error fetching customers'});
             return;
         }
-        console.log(results);
         res.status(200).json({"success": true, "data": results});
     });
 });
+
+app.delete('/customers/:id', (req, res) => {
+    const sql = 'DELETE FROM customers WHERE id = ?';
+    const customerID = req.params.id;
+    db.query(sql, [customerID], (err, results) => {
+        if (err) {
+            console.error('Error deleteing customers:', err);
+            res.status(500).json({"success": false, "message": 'Error deleting customer'});
+            return;
+        }
+    })
+    res.status(200).json({"success": true});
+})
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
