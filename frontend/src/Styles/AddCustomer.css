@@ -20,7 +20,7 @@
         border-radius: 10px;
         margin-inline: auto;
         width: 70vw;
-        height: 70vh;
+        height: 80vh;
         max-width: 900px;
         max-height: 600px;
         display: flex;
@@ -44,7 +44,9 @@
         }
 
         .modal_form {
-            height: 400px;
+            min-height: 350px;
+            padding-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             flex-direction: column;
             width: 100%;
@@ -77,6 +79,10 @@
                 input:focus, input:hover {
                     border: 2px solid #58a9dc;
                 }
+
+                .input_error {
+                    border: 2px solid #f64a4a;
+                }
             }
 
         }
@@ -93,6 +99,7 @@
 
             button {
                 padding: 8px;
+                min-width: 80px;
                 width: 5vw;
                 min-height: 2vw;
                 font-size: 1rem;

@@ -23,7 +23,17 @@ db.connect((err) => {
 });
 
 app.post('/customers', (req, res) => {
-    res.send('Testing post response');
+    const body = req.body;
+    const sql = 'INSERT INTO customers (name, email, company_name, phone, profile_picture_url, contract_start_date, contract_expire_date) VALUES (?, ?, ?, ?, ?, ?, ?)'
+    const values = [body.name, body.email, body.company, body.phone, body.profilePicture, body.startDate, body.endDate];
+    db.query(sql, values, (err) => {
+        if (err) {
+            console.error('Error fetching customers:', err);
+            res.status(500).json({"success": false, "message": 'Error saving customer'});
+            return;
+        }
+        res.status(200).json({"success": true});
+    });
 });
 
 app.get('/customers', (req, res) => {
