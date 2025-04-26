@@ -46,7 +46,6 @@ const AddCustomer = ( { closeModal, setIsLoaded } ) => {
             });
             const reply = await response.json()
             if (!reply.success) {
-                console.log(reply)
                 let oldError = {...defaultErrorState}
                 switch (reply.type) {
                     case "name":

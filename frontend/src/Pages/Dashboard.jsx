@@ -29,7 +29,6 @@ const Dashboard = () => {
             });
             let reply = await response.json();
             if (reply.success) {
-                console.log(reply)
                 setUsers(reply.data);
 
             } else {
